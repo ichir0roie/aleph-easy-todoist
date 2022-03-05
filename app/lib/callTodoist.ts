@@ -22,17 +22,17 @@ export default async function callTodoist(content="",dueDate=new Date(),auth="")
   console.log(dueDate);
   console.log(auth);
 
-  fetch(baseUrl,{
+  const res =await fetch(baseUrl,{
     method:"POST",
     headers:postHeader,
     body:JSON.stringify(postBody)
-  }).then((response)=>{
-    const responseJson=response.json();
-    console.log(responseJson);
-  });
-  
-  
-
+  })
+  // then((response)=>{
+  //   const responseJson=response.json();
+  //   console.log(responseJson);
+  // });
+  console.log(res);
+  return res;
 }
 
 declare global{
