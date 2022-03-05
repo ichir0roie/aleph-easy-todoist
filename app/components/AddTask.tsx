@@ -75,15 +75,8 @@ function TextBox({ label = "", value = "", setValue = null }: { label: string, v
   )
 }
 
-
-function LabelAndText({ label = "", text = "" }: { label: string, text: string }) {
-  return (
-    <div className="col-md-6 mb-4">
-      <label htmlFor="firstName">{label} : {text}</label>
-    </div>
-  )
+declare global{
+  interface Crypto{
+    randomUUID:()=>string;
+  }
 }
-
-
-
-
