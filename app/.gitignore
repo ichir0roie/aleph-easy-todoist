@@ -2,3 +2,4 @@
 Thumbs.db
 .aleph/
 # dist/
+authToken.ts
