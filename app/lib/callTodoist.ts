@@ -22,14 +22,14 @@ export default async function callTodoist(content="",dueDate=new Date(),auth="")
   console.log(dueDate);
   console.log(auth);
 
-  const response=await fetch(baseUrl,{
+  fetch(baseUrl,{
     method:"POST",
     headers:postHeader,
     body:JSON.stringify(postBody)
+  }).then((response)=>{
+    const responseJson=response.json();
+    console.log(responseJson);
   });
-  
-  const responseJson=response.json();
-  console.log(responseJson);
   
   
 

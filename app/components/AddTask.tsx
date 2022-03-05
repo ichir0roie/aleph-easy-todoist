@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 
 //https://www.npmjs.com/package/react-datepicker
-import DatePicker  from "https://esm.sh/react-datepicker@4.7.0"
+// import DatePicker  from "https://esm.sh/react-datepicker@4.7.0"
 
 
 import "../style/react-datepicker.css"
@@ -32,9 +32,9 @@ export default function AddTask({ size = 75 }: { size?: number }) {
           <TextBox label="content" value={content} setValue={setContent}/>
           <div className="col-md-6 mb-3">
             <label>due-date</label>
-            <DatePicker selected={startDate} onChange={(date:Date) => setStartDate(date)} 
-            dateFormat="yyyy-MM-dd"
-            />
+            {/* <DatePicker selected={startDate} onChange={(date:Date) => setStartDate(date)}  */}
+            {/* dateFormat="yyyy-MM-dd" */}
+            {/* /> */}
           </div>
 
           <LabelAndText label="auth token" text={auth}/>
