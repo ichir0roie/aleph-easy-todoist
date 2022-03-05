@@ -4,6 +4,6 @@ export default <Config>{
   build: {
     target: 'es2020',
     browsers: { chrome: 90},
-    outputDir: 'https://www.ichir0roie.com/easyTodoist/',
+    outputDir: 'dist/easyTodoist',
   }
 }
