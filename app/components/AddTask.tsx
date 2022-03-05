@@ -37,6 +37,7 @@ export default function AddTask({ size = 75 }: { size?: number }) {
         <div className="col-md-8 order-md-1">
           {/* {content} */}
           <TextBox label="content" value={content} setValue={setContent} />
+          <button className="btn btn-primary" onClick={send} >send</button>
           <div className="col-md-6 mb-3">
             {/* <label>due-date</label> */}
             {/* <DatePicker selected={startDate} onChange={(date:Date) => setStartDate(date)} dateFormat="yyyy-MM-dd"/> */}
@@ -44,14 +45,17 @@ export default function AddTask({ size = 75 }: { size?: number }) {
           <TextBox label="due date" value={startDate} setValue={setStartDate} />
 
 
-          <button className="btn btn-primary" onClick={send} >send</button>
+          <div className="col-md-6 mb-3"><label/></div>
 
-
+          <div className="col-md-6 mb-3">
+          <label >result</label>
           <div className="card" >
             <div className="card-body">
               <p className="card-text">{resView}</p>
             </div>
           </div>
+
+            </div>
 
 
         </div>
@@ -63,20 +67,10 @@ export default function AddTask({ size = 75 }: { size?: number }) {
 
 function TextBox({ label = "", value = "", setValue = null }: { label: string, value: string, setValue: any }) {
 
-
-  // const [value, setValue] = useState("");
-
-
   return (
     <div className="col-md-6 mb-3">
-      <label htmlFor="firstName">{label}</label>
+      <label >{label}</label>
       <input type="text" className="form-control" id="firstName" value={value} onChange={(e) => setValue(e.target.value)} />
     </div>
   )
-}
-
-declare global{
-  interface Crypto{
-    randomUUID:()=>string;
-  }
 }
