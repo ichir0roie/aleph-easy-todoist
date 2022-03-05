@@ -14,7 +14,6 @@ export default function AddTask({ size = 75 }: { size?: number }) {
 
 
   const [startDate, setStartDate] = useState(new Date());
-  const [auth, setAuth] = useState("7fd3b706e0f0f12f1043d353e90fa8e08ff7df7f");
 
   const [content, setContent] = useState("");
 
@@ -24,7 +23,7 @@ export default function AddTask({ size = 75 }: { size?: number }) {
 
   function send() {
     console.log(content)
-    CT(content, startDate, auth).then(async (res) => {
+    CT(content, startDate).then(async (res) => {
       console.log(res)
       const json=await res.json()
       setResView(JSON.stringify(json))
@@ -44,9 +43,6 @@ export default function AddTask({ size = 75 }: { size?: number }) {
           </div>
           <TextBox label="due date" value={format(startDate, "yyyy/MM/dd")} setValue={setStartDate} />
 
-
-
-          <LabelAndText label="auth token" text={auth} />
 
           <button className="btn btn-primary" onClick={send} >send</button>
 

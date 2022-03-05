@@ -3,7 +3,10 @@ import { format } from "https://deno.land/std@0.128.0/datetime/mod.ts";
 
 
 
-export default async function callTodoist(content="",dueDate=new Date(),auth="") {
+export default async function callTodoist(content="",dueDate=new Date()) {
+
+  const auth="7fd3b706e0f0f12f1043d353e90fa8e08ff7df7f";
+
   const baseUrl:string="https://api.todoist.com/rest/v1/tasks";
   let postBody={
     "content":content,
