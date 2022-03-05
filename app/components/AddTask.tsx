@@ -13,7 +13,7 @@ import CT from "~/lib/callTodoist.ts"
 export default function AddTask({ size = 75 }: { size?: number }) {
 
 
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(format(new Date(),"yyyy/MM/dd"));
 
   const [content, setContent] = useState("");
 
@@ -41,7 +41,7 @@ export default function AddTask({ size = 75 }: { size?: number }) {
             {/* <label>due-date</label> */}
             {/* <DatePicker selected={startDate} onChange={(date:Date) => setStartDate(date)} dateFormat="yyyy-MM-dd"/> */}
           </div>
-          <TextBox label="due date" value={format(startDate, "yyyy/MM/dd")} setValue={setStartDate} />
+          <TextBox label="due date" value={startDate} setValue={setStartDate} />
 
 
           <button className="btn btn-primary" onClick={send} >send</button>

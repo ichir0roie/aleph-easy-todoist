@@ -1,11 +1,12 @@
 import { v4 } from "https://deno.land/std@0.128.0/uuid/mod.ts";
 import { format } from "https://deno.land/std@0.128.0/datetime/mod.ts";
+import { parse } from "https://deno.land/std@0.128.0/datetime/mod.ts";
 
 import {auth} from '~/lib/authToken.ts'
 
 
-export default async function callTodoist(content="",dueDate=new Date()) {
-
+export default async function callTodoist(content="",dueDateString="") {
+  const dueDate=parse(dueDateString,"yyyy/MM/dd")
   const baseUrl:string="https://api.todoist.com/rest/v1/tasks";
   let postBody={
     "content":content,
