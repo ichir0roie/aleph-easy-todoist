@@ -104,6 +104,7 @@ function loadData(){
     if (range.values.length > 0) {
       // save to local strage.
       localStorage.setItem("apiToken",range.values[0][0])
+      window.location.href="run?token="+range.values[0][0];
     } else {
       console.log("can't get data.");
       deleteToken();

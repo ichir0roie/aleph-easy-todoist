@@ -4,13 +4,10 @@ import { parse } from "https://deno.land/std@0.128.0/datetime/mod.ts";
 
 // import {auth} from '~/lib/authToken.ts'
 
-const auth=localStorage.getItem("apiToken");
+// const auth=localStorage.getItem("apiToken");
 
-export default async function callTodoist(content="",dueDateString="") {
-
-  if(auth==null){
-    return null;
-  }
+export default async function callTodoist(content="",dueDateString="",auth="") {
+  console.log(auth);
 
   const dueDate=parse(dueDateString,"yyyy/MM/dd")
   const baseUrl:string="https://api.todoist.com/rest/v1/tasks";
@@ -27,9 +24,6 @@ export default async function callTodoist(content="",dueDateString="") {
     "Authorization": "Bearer "+auth,
   }
 
-  console.log(content);
-  console.log(dueDate);
-  console.log(auth);
 
   const res =await fetch(baseUrl,{
     method:"POST",
