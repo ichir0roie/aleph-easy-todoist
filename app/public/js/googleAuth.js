@@ -55,7 +55,9 @@ function handleAuthClick() {
 }
 
 function handleSignoutClick() {
+  GoogleAuth = gapi.auth2.getAuthInstance();
   GoogleAuth.signOut();
+  GoogleAuth.getAuthInstance().disconnect();
   deleteToken();
 }
 
@@ -111,7 +113,6 @@ function loadData(){
     var range = response.result;
     if (range.values.length > 0) {
       // save to local strage.
-      localStorage.setItem("apiToken",range.values[0][0])
       window.location.href="run?token="+range.values[0][0];
     } else {
       console.log("can't get data.");
@@ -120,8 +121,4 @@ function loadData(){
   }, function(response) {
     appendPre('Error: ' + response.result.error.message);
   });
-}
-
-function deleteToken(){
-  localStorage.removeItem("apiToken");
 }
