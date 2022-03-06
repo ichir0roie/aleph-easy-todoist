@@ -1,13 +1,12 @@
 import React from 'react'
 
-export default function Login({ size = 75 }: { size?: number }) {
+export default function Login() {
   return (
-    <body className="bg-right">
-      <div className="container">
-        <h4 className="mb-3">Login</h4>
-      </div>
-    </body>
-
+    <div>
+      <p>loading...</p>
+      <script src="/js/googleAuth.js"/>
+    </div>
+    
   )
 }
 

@@ -10,7 +10,7 @@ import { format } from "https://deno.land/std@0.128.0/datetime/mod.ts";
 
 import CT from "~/lib/callTodoist.ts"
 
-export default function AddTask({ size = 75 }: { size?: number }) {
+export default function AddTask() {
 
 
   const [startDate, setStartDate] = useState(format(new Date(),"yyyy/MM/dd"));
@@ -24,9 +24,10 @@ export default function AddTask({ size = 75 }: { size?: number }) {
   function send() {
     console.log(content)
     CT(content, startDate).then(async (res) => {
-      console.log(res)
-      const json=await res.json()
-      setResView(JSON.stringify(json))
+      if(res==null)return;
+      console.log(res);
+      var json=res.json();
+      setResView(JSON.stringify(json));
     });
   }
 
