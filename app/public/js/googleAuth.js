@@ -57,7 +57,7 @@ function handleAuthClick() {
 function handleSignoutClick() {
   GoogleAuth = gapi.auth2.getAuthInstance();
   GoogleAuth.signOut();
-  GoogleAuth.getAuthInstance().disconnect();
+  GoogleAuth.disconnect();
   deleteToken();
 }
 
