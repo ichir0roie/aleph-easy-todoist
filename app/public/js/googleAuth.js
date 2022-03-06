@@ -14,7 +14,8 @@ fetch("/googleAuth.html").then((res)=>{
 var url = new URL(window.location.href);
 // URLSearchParamsオブジェクトを取得
 var params = url.searchParams;
-var modeStop=params.get("stop");
+var modeDelete=params.get("delete");
+console.log(modeDelete);
 
 // load googleAuth
 const script=document.createElement("script");
@@ -55,10 +56,10 @@ function handleAuthClick() {
 }
 
 function handleSignoutClick() {
+  console.log("delete token");
   GoogleAuth = gapi.auth2.getAuthInstance();
   GoogleAuth.signOut();
   GoogleAuth.disconnect();
-  deleteToken();
 }
 
 // https://qiita.com/kenken1981/items/9d738687c5cfb453be19
@@ -82,7 +83,7 @@ function initClient() {
       console.log("setup GA instance.")
       GoogleAuth = gapi.auth2.getAuthInstance();
 
-      if(modeStop)return;
+      if(modeDelete)handleSignoutClick();
       loadData();
 
       GoogleAuth.isSignedIn.listen(updateSigninStatus); 
