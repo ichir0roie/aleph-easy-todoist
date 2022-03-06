@@ -1,3 +1,5 @@
+
+
 // load html
 var xmlhttp = new XMLHttpRequest();
 fetch("/googleAuth.html").then((res)=>{
@@ -6,6 +8,13 @@ fetch("/googleAuth.html").then((res)=>{
   document.body.innerHTML=data;
 })
 // xmlhttp.send(null);
+
+
+// URLを取得
+var url = new URL(window.location.href);
+// URLSearchParamsオブジェクトを取得
+var params = url.searchParams;
+var modeStop=params.get("stop");
 
 // load googleAuth
 const script=document.createElement("script");
@@ -19,8 +28,6 @@ function handleClientLoad() {
   // Load the API client and auth2 library
   gapi.load('client:auth2', initClient);
   console.log("load gapi.")
-
-  
 }
 
 document.body.appendChild(script);
@@ -73,6 +80,7 @@ function initClient() {
       console.log("setup GA instance.")
       GoogleAuth = gapi.auth2.getAuthInstance();
 
+      if(modeStop)return;
       loadData();
 
       GoogleAuth.isSignedIn.listen(updateSigninStatus); 
